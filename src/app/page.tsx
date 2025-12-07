@@ -7,20 +7,17 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    // In demo mode, go straight to dashboard
-    // In production mode, show login
-    const useMockData = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true';
-
-    if (useMockData) {
-      router.push('/dashboard');
-    } else {
-      router.push('/login');
-    }
+    // Always go to dashboard in demo mode
+    // To enable login, change this to router.push('/login')
+    router.push('/dashboard');
   }, [router]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-lg">Loading...</div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="text-center">
+        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-600 border-r-transparent mb-4"></div>
+        <p className="text-gray-600">Loading BW-Backbone...</p>
+      </div>
     </div>
   );
 }
