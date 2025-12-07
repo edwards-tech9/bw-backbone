@@ -251,5 +251,4 @@ export const mockEquipment: Equipment[] = [
 ];
 
 // Helper to use mock data when Supabase is not configured
-// Always use mock data for demo mode
-export const useMockData = true;
+export const useMockData = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true';
