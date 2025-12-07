@@ -132,6 +132,32 @@ export default function LoginPage() {
           <p className="text-xs text-center text-gray-500">
             Staff members use your @biltwood.com or registered Gmail account
           </p>
+
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300" />
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-2 bg-white text-gray-500">Demo Mode</span>
+            </div>
+          </div>
+
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <h3 className="text-sm font-semibold text-blue-900 mb-2">View Demo</h3>
+            <p className="text-xs text-blue-800 mb-3">
+              Explore the system with sample data. No login required!
+            </p>
+            <a
+              href="/dashboard"
+              className="block w-full text-center py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-medium"
+            >
+              Continue to Dashboard →
+            </a>
+          </div>
+
+          <p className="text-xs text-center text-gray-400">
+            Authentication will be enabled when connected to production database
+          </p>
         </div>
       </div>
     </div>
