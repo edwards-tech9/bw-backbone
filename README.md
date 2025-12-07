@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BW-Backbone
+
+**Operations Management System for Biltwood Powder Coating**
+
+A comprehensive web-based platform that unifies quoting, job tracking, production workflow, quality control, maintenance, invoicing, and payroll into a single integrated dashboard.
+
+## Quick Links
+
+- **[PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md)** - Complete project vision and roadmap
+- **[DATABASE_SCHEMA.md](DATABASE_SCHEMA.md)** - Full database design documentation
+- **[SETUP.md](SETUP.md)** - Step-by-step setup instructions
+
+## Tech Stack
+
+- **Frontend**: Next.js 16, React 19, TypeScript, Tailwind CSS
+- **Backend**: Supabase (PostgreSQL + Auth + Real-time)
+- **Integrations**: Google OAuth, Google Drive API, QuickBooks
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Configure Environment
+
+```bash
+cp .env.local.example .env.local
+```
+
+Then edit `.env.local` with your Supabase credentials (see SETUP.md for details).
+
+### 3. Set Up Database
+
+1. Create a Supabase project at [supabase.com](https://supabase.com)
+2. Go to SQL Editor in your Supabase dashboard
+3. Run the migration script: `supabase/migrations/001_initial_schema.sql`
+
+### 4. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/              # Next.js pages
+│   ├── (auth)/      # Login & auth
+│   ├── dashboard/   # Main dashboard
+│   └── jobs/        # Job management
+├── components/      # React components
+├── lib/             # Utilities & Supabase client
+└── types/           # TypeScript definitions
+```
 
-## Learn More
+## Core Features
 
-To learn more about Next.js, take a look at the following resources:
+### Phase 1 (Current Foundation)
+- ✅ Authentication (Google OAuth + Email)
+- ✅ Dashboard shell
+- ✅ Job management foundation
+- ✅ Database schema
+- 🔄 Time tracking (planned)
+- 🔄 QC module (planned)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Phase 2 (Next Steps)
+- Job creation & traveler generation
+- QR code workflows
+- Google Drive integration
+- Time clock system
+- Manager approval workflows
+- QuickBooks export
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Phase 3 (Future)
+- JARVIS AI estimator
+- Marketing automation
+- Advanced analytics
+- Mobile PWA
 
-## Deploy on Vercel
+## Key Modules
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Job & Production Management** - Complete job lifecycle tracking
+2. **JARVIS Estimator** - AI-powered quote generation
+3. **Material Library** - Powder colors and vendor catalogs
+4. **Staff Management** - Role-based access and team portal
+5. **Time Tracking** - Clock in/out with payroll integration
+6. **Quality Control** - Defect tracking and trend analysis
+7. **Equipment Maintenance** - Inspections and preventive maintenance
+8. **Invoicing** - Auto-generation and QuickBooks sync
+9. **Marketing Dashboard** - Social media automation
+10. **Role-Based Dashboards** - Custom views per department
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development
+
+```bash
+npm run dev      # Development server
+npm run build    # Production build
+npm run start    # Production server
+npm run lint     # ESLint
+```
+
+## Documentation
+
+- See [DATABASE_SCHEMA.md](DATABASE_SCHEMA.md) for complete table structures
+- See [SETUP.md](SETUP.md) for detailed setup instructions
+- See [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md) for full project scope
+
+## Environment Variables
+
+Required in `.env.local`:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+```
+
+## Support
+
+For setup questions, see SETUP.md or contact the development team.
+
+## License
+
+Proprietary - Biltwood Powder Coating
